@@ -18,8 +18,7 @@ export interface SolicitudAdopcion {
   selector: 'app-adopciones',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './adopciones.html',
-  styleUrl: './adopciones.css'
+  templateUrl: './adopciones.html'
 })
 export class AdopcionesComponent implements OnInit {
   adopcionForm!: FormGroup;

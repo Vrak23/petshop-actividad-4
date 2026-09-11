@@ -14,8 +14,7 @@ export interface Mascota {
   selector: 'app-mascotas',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './mascotas.html',
-  styleUrl: './mascotas.css'
+  templateUrl: './mascotas.html'
 })
 export class MascotasComponent {
   mascota: Mascota = {

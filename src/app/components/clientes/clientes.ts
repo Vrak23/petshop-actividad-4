@@ -15,8 +15,7 @@ export interface Cliente {
   selector: 'app-clientes',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './clientes.html',
-  styleUrl: './clientes.css'
+  templateUrl: './clientes.html'
 })
 export class ClientesComponent {
   cliente: Cliente = {
