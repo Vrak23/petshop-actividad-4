@@ -1,0 +1,81 @@
+<div class="max-w-6xl mx-auto bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-8">
+  <h2 class="text-xl font-bold text-slate-800 mb-6">Solicitud de Adopción</h2>
+
+  <div *ngIf="mensajeExito" class="mb-4 p-3 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-lg">
+    ¡Solicitud registrada con éxito mediante Reactive Forms!
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+    <!-- Formulario Reactive (Lado Izquierdo) -->
+    <form [formGroup]="adopcionForm" (ngSubmit)="guardarSolicitud()" class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Cliente *</label>
+        <select formControlName="cliente" class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+          <option value="">Selecciona un cliente</option>
+          <option value="Carlos Ruíz">Carlos Ruíz</option>
+          <option value="Ana Torres">Ana Torres</option>
+          <option value="María López">María López</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Mascota *</label>
+        <select formControlName="mascota" class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+          <option value="">Selecciona una mascota</option>
+          <option value="Max">Max</option>
+          <option value="Luna">Luna</option>
+          <option value="Toby">Toby</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Fecha de solicitud *</label>
+        <input type="date" formControlName="fecha" class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Motivo de adopción *</label>
+        <select formControlName="motivo" class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+          <option value="">Selecciona motivo</option>
+          <option value="Compañía familiar">Compañía familiar</option>
+          <option value="Terapia">Terapia</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Correo electrónico *</label>
+        <input type="email" formControlName="correo" placeholder="Selecciona correo" class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Tipo de vivienda *</label>
+        <select formControlName="tipoVivienda" class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+          <option value="">Selecciona tipo de vivienda</option>
+          <option value="Casa con jardín">Casa con jardín</option>
+          <option value="Departamento">Departamento</option>
+        </select>
+      </div>
+
+      <div class="sm:col-span-2 flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Observaciones</label>
+        <textarea formControlName="observaciones" rows="3" placeholder="Escribe una breve descripción..." class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"></textarea>
+      </div>
+
+      <div class="sm:col-span-2 flex gap-3 pt-4">
+        <button type="submit" [disabled]="adopcionForm.invalid" class="bg-[#1b4380] hover:bg-blue-900 text-white font-semibold text-sm px-6 py-2 rounded-md shadow-sm transition-all disabled:opacity-50">
+          Enviar solicitud
+        </button>
+        <button type="button" (click)="adopcionForm.reset()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm px-6 py-2 rounded-md transition-all">
+          Limpiar
+        </button>
+      </div>
+    </form>
+
+    <!-- Side Image Card (Lado Derecho) -->
+    <div class="md:col-span-4 bg-sky-50 p-6 rounded-xl border border-sky-100 flex flex-col items-center justify-center text-center gap-3">
+      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=300&q=80" alt="Adopción" class="w-32 h-32 rounded-full object-cover shadow-md">
+      <span class="material-symbols-outlined text-rose-500 text-2xl">favorite</span>
+      <p class="font-bold text-slate-800 text-sm max-w-[180px]">Adoptar es dar una segunda oportunidad</p>
+    </div>
+  </div>
+</div>

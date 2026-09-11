@@ -1,0 +1,69 @@
+<div class="max-w-6xl mx-auto bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-8">
+  <h2 class="text-xl font-bold text-slate-800 mb-6">Registro de Clientes</h2>
+
+  <div *ngIf="mensajeExito" class="mb-4 p-3 bg-emerald-100 text-emerald-800 text-sm font-semibold rounded-lg">
+    ¡Cliente registrado correctamente!
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+    <!-- Formulario (Lado Izquierdo) -->
+    <form #cliForm="ngForm" (ngSubmit)="guardarCliente(cliForm)" class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Nombres *</label>
+        <input type="text" name="nombres" [(ngModel)]="cliente.nombres" #nombres="ngModel" required minlength="2"
+               class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+               placeholder="Ej: Juan Carlos"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Apellidos *</label>
+        <input type="text" name="apellidos" [(ngModel)]="cliente.apellidos" #apellidos="ngModel" required minlength="2"
+               class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+               placeholder="Ej: Perez Garcia"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">DNI *</label>
+        <input type="text" name="dni" [(ngModel)]="cliente.dni" #dni="ngModel" required pattern="^[0-9]{8}$"
+               class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+               placeholder="Ej: 12345678"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Teléfono *</label>
+        <input type="tel" name="telefono" [(ngModel)]="cliente.telefono" #telefono="ngModel" required minlength="9"
+               class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+               placeholder="Ej: 987654321"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Correo electrónico *</label>
+        <input type="email" name="correo" [(ngModel)]="cliente.correo" #correo="ngModel" required email
+               class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+               placeholder="Ej: correo@ejemplo.com"/>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-slate-600">Dirección *</label>
+        <input type="text" name="direccion" [(ngModel)]="cliente.direccion" #direccion="ngModel" required
+               class="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+               placeholder="Ej: Av. Principal 123, Lima"/>
+      </div>
+
+      <div class="sm:col-span-2 flex gap-3 pt-4">
+        <button type="submit" [disabled]="cliForm.invalid" class="bg-[#1b4380] hover:bg-blue-900 text-white font-semibold text-sm px-6 py-2 rounded-md shadow-sm transition-all disabled:opacity-50">
+          Registrar
+        </button>
+        <button type="button" (click)="cliForm.resetForm()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm px-6 py-2 rounded-md transition-all">
+          Limpiar
+        </button>
+      </div>
+    </form>
+
+    <!-- Side Image Card (Lado Derecho) -->
+    <div class="md:col-span-4 bg-sky-50 p-6 rounded-xl border border-sky-100 flex flex-col items-center justify-center text-center gap-3">
+      <span class="material-symbols-outlined text-[#1b4380] text-6xl">person</span>
+      <p class="font-bold text-slate-800 text-sm max-w-[180px]">Nuestros clientes también son parte de la familia</p>
+    </div>
+  </div>
+</div>

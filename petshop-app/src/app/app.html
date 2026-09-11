@@ -1,0 +1,29 @@
+<header class="bg-[#1b4380] text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a routerLink="/inicio" class="flex items-center gap-2 font-bold text-xl tracking-wide">
+      <span class="material-symbols-outlined text-orange-400 text-3xl">pets</span>
+      <span>PetShop</span>
+    </a>
+
+    <!-- Menu Links -->
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a routerLink="/inicio" routerLinkActive="text-orange-400 font-bold" class="hover:text-orange-300 transition-colors">Inicio</a>
+      <a routerLink="/nosotros" routerLinkActive="text-orange-400 font-bold" class="hover:text-orange-300 transition-colors">Nosotros</a>
+      <a routerLink="/mascotas" routerLinkActive="text-orange-400 font-bold" class="hover:text-orange-300 transition-colors">Mascotas</a>
+      <a routerLink="/clientes" routerLinkActive="text-orange-400 font-bold" class="hover:text-orange-300 transition-colors">Clientes</a>
+      <a routerLink="/adopciones" routerLinkActive="text-orange-400 font-bold" class="hover:text-orange-300 transition-colors">Adopciones</a>
+      <a routerLink="/dashboard" routerLinkActive="text-orange-400 font-bold" class="hover:text-orange-300 transition-colors">Dashboard</a>
+    </nav>
+
+    <!-- Icons -->
+    <div class="flex items-center gap-4 text-white">
+      <span class="material-symbols-outlined cursor-pointer hover:text-orange-300">search</span>
+      <span class="material-symbols-outlined cursor-pointer hover:text-orange-300">person</span>
+    </div>
+  </div>
+</header>
+
+<main class="bg-slate-100 min-h-[calc(100vh-4rem)] py-8 px-4 sm:px-6">
+  <router-outlet></router-outlet>
+</main>
